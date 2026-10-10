@@ -10,7 +10,8 @@ export const allProducts = async (): Promise<ProductsType[]> => {
     cacheTag('products');
     cacheLife({ revalidate: 300 });
 
-    const PRIMARY_URL = 'https://api.abcz.workers.dev/api/bazardor/products';
+    const PRIMARY_URL =
+        'https://openapi.programming-hero.com/api/bazardor/products';
     const FALLBACK_URL =
         'https://api.api-store.workers.dev/api/bazardor/products';
 
@@ -31,7 +32,7 @@ export const SingleProduct = async ({
 }: {
     id: string;
 }): Promise<ProductsType> => {
-    const PRIMARY_URL = `https://api.abcz.workers.dev/api/bazardor/products/${id}`;
+    const PRIMARY_URL = `https://openapi.programming-hero.com/api/bazardor/products/${id}`;
     const FALLBACK_URL = `https://api.api-store.workers.dev/api/bazardor/products/${id}`;
 
     try {
@@ -55,7 +56,7 @@ export const categoryProducts = async ({
     cacheTag('category');
     cacheLife({ revalidate: 400 });
 
-    const PRIMARY_URL = `https://api.abcz.workers.dev/api/bazardor/products?category=${slug}`;
+    const PRIMARY_URL = `https://openapi.programming-hero.com/api/bazardor/products?category=${slug}`;
     const FALLBACK_URL = `https://api.api-store.workers.dev/api/bazardor/products?category=${slug}`;
 
     try {

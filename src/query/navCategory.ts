@@ -5,7 +5,8 @@ export const navCategory = async (): Promise<NavCategory[]> => {
     'use cache';
 
     // ১. প্রথম ও দ্বিতীয় API ইউআরএল
-    const PRIMARY_API = 'https://api.abcz.workers.dev/api/bazardor/categories';
+    const PRIMARY_API =
+        'https://openapi.programming-hero.com/api/bazardor/categories';
     const FALLBACK_API =
         'https://api.api-store.workers.dev/api/bazardor/categories';
 
