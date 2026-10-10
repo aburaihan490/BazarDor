@@ -3,6 +3,7 @@ import ProductCard from '@/components/ProductCard';
 import { navCategory } from '@/query/navCategory';
 import { categoryProducts } from '@/query/products';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface Props {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -17,6 +18,8 @@ const ProductList = async ({ searchParams }: Props) => {
     //     : (categoryParam ?? '');
     // console.log(category);
     const sortBy = Array.isArray(sortParam) ? sortParam[0] : (sortParam ?? '');
+
+    if (!categoryParam) notFound();
 
     // category Products query
     const [products, categories] = await Promise.all([

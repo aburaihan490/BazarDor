@@ -1,4 +1,3 @@
-import NotFound from '@/app/not-found';
 import { SingleProduct } from '@/query/products';
 import { ProductsType } from '@/types'; // নিশ্চিত করুন ProductsType সঠিক Path থেকে Import হচ্ছে
 
