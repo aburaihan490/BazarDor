@@ -10,15 +10,6 @@ interface ProductDetailsProps {
     }>;
 }
 
-// // ইংরেজি সংখ্যাকে বাংলায় রূপান্তর করার জন্য Helper function
-// const toBengaliNumber = (num: number | string | undefined | null): string => {
-//     if (num === undefined || num === null) return '';
-//     const bengaliDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-//     return num
-//         .toString()
-//         .replace(/\d/g, (digit) => bengaliDigits[parseInt(digit, 10)]);
-// };
-
 const ProductDetails = async ({ params }: ProductDetailsProps) => {
     const { id } = await params;
     const product: ProductsType = await SingleProduct({ id });
