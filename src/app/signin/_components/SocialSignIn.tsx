@@ -1,7 +1,6 @@
 'use client';
 
 import { authClient } from '@/lib/auth-client';
-import toast from 'react-hot-toast';
 
 const SocialSignIn = () => {
     const handleSocialSignIn = async (provider: 'google' | 'github') => {
