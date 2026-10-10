@@ -6,10 +6,10 @@ import toast from 'react-hot-toast';
 const SocialSignIn = () => {
     const handleSocialSignIn = async (provider: 'google' | 'github') => {
         try {
-            const res = await authClient.signIn.social(
+            await authClient.signIn.social(
                 {
                     provider,
-                    // callbackURL: '/',
+                    callbackURL: '/',
                 },
                 // {
                 //     onSuccess: () => {
@@ -25,14 +25,6 @@ const SocialSignIn = () => {
                 //     },
                 // },
             );
-            if (res?.error) {
-                toast.error(res.error.message || 'সাইন-ইন করতে সমস্যা হয়েছে', {
-                    id: 'social-signin',
-                });
-                return;
-            }
-
-            toast.success('সফলভাবে সাইন-ইন হয়েছে!');
         } catch (error) {
             console.error(`${provider} sign in failed:`, error);
         }
