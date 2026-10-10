@@ -1,6 +1,7 @@
 import 'server-only';
 import { ProductsType } from '@/types';
 import { cacheLife, cacheTag } from 'next/cache';
+import { notFound } from 'next/navigation';
 
 // ১. All Products Query
 export const allProducts = async (): Promise<ProductsType[]> => {
@@ -35,11 +36,11 @@ export const SingleProduct = async ({
 
     try {
         const res = await fetch(PRIMARY_URL, { cache: 'no-store' });
-        if (!res.ok) throw new Error('Primary API failed');
+        if (!res.ok) notFound();
         return await res.json();
     } catch {
         const fallbackRes = await fetch(FALLBACK_URL, { cache: 'no-store' });
-        if (!fallbackRes.ok) throw new Error('Both APIs failed');
+        if (!fallbackRes.ok) notFound();
         return await fallbackRes.json();
     }
 };
@@ -59,11 +60,11 @@ export const categoryProducts = async ({
 
     try {
         const res = await fetch(PRIMARY_URL);
-        if (!res.ok) throw new Error('Primary API failed');
+        if (!res.ok) notFound();
         return await res.json();
     } catch {
         const fallbackRes = await fetch(FALLBACK_URL);
-        if (!fallbackRes.ok) throw new Error('Both APIs failed');
+        if (!fallbackRes.ok) notFound();
         return await fallbackRes.json();
     }
 };
