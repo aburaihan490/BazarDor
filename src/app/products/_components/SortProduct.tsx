@@ -23,7 +23,6 @@ const SortProduct = () => {
         router.push(`${pathname}?${params.toString()}`);
     };
 
-    useEffect(() => {}, [currentSort]);
     return (
         <div className="flex min-h-11 items-center justify-end gap-2 rounded-xl border border-[#e1e9e2] bg-white/80 px-3 py-2 sm:px-5">
             <label

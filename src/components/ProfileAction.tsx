@@ -31,16 +31,16 @@ const ProfileAction = () => {
         return (
             <div className="flex items-center gap-3 animate-pulse p-2">
                 <div className="h-12 w-12 rounded-full bg-gray-200" />
-                <div className="flex flex-col gap-1.5">
+                {/* <div className="flex flex-col gap-1.5">
                     <div className="h-4 w-24 rounded bg-gray-200" />
-                </div>
+                </div> */}
             </div>
         );
     }
 
     if (!user) {
         return (
-            <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-x-3">
                 <Link
                     href="/signin"
                     className="rounded-lg px-4 py-2 text-sm font-medium"
@@ -77,7 +77,9 @@ const ProfileAction = () => {
                     className="h-12 w-12 rounded-full object-cover"
                 />
 
-                <span className="font-medium text-gray-800">{user.name}</span>
+                <span className="hidden md:block font-medium text-gray-800">
+                    {user.name}
+                </span>
 
                 <span className="text-xs text-gray-500">
                     {isOpen ? '▲' : '▼'}
@@ -91,7 +93,7 @@ const ProfileAction = () => {
                         className="fixed inset-0 z-55 bg-transparent"
                         onClick={() => setIsOpen(false)}
                     />
-                    <div className="absolute right-0 top-full z-60 mt-3 w-80 max-w-[calc(100vw-2rem)] rounded-3xl border border-gray-200 bg-white p-6 shadow-xl">
+                    <div className="absolute -right-12 md:right-0 top-full z-60 mt-3 w-80 max-w-[calc(100vw-2rem)] rounded-3xl border border-gray-200 bg-white p-6 shadow-xl">
                         {/* User Info */}
                         <div className="mb-5">
                             <h3 className="text-lg font-semibold text-gray-800">

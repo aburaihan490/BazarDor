@@ -52,10 +52,11 @@ export default function ProfilePage() {
                     <p className="mt-1 text-sm text-gray-600">
                         আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন।
                     </p>
-
                     {/* User card */}
-                    <section className="mt-6 flex items-center justify-between rounded-2xl border border-gray-200 bg-white/80 p-5">
-                        <div className="flex items-center gap-4">
+
+                    <section className="mt-6 flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white/80 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+                        {/* User Information */}
+                        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
                             <Image
                                 src={
                                     user?.image ||
@@ -64,22 +65,25 @@ export default function ProfilePage() {
                                 width={48}
                                 height={48}
                                 alt={user?.name || 'User'}
-                                className="h-12 w-12 rounded-full object-cover"
+                                className="h-12 w-12 shrink-0 rounded-full object-cover"
                             />
-                            <div>
-                                <h2 className="text-lg font-semibold text-gray-900">
+
+                            <div className="min-w-0 flex-1">
+                                <h2 className="truncate text-base font-semibold text-gray-900 sm:text-lg">
                                     {user?.name}
                                 </h2>
-                                <p className="text-sm text-gray-600">
+
+                                <p className="break-all text-sm text-gray-600">
                                     {user?.email}
                                 </p>
                             </div>
                         </div>
 
+                        {/* Sign Out Button */}
                         <button
                             type="button"
                             onClick={handleSignOut}
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-red-500 px-3 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 cursor-pointer"
+                            className="inline-flex w-full shrink-0 items-center justify-center gap-1.5 rounded-lg border border-red-500 px-3 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 cursor-pointer sm:w-auto"
                         >
                             <LogOut className="h-4 w-4 rotate-180" />
                             সাইন আউট
